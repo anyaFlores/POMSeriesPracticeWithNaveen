@@ -19,6 +19,16 @@ public class ProductPageInfoTest extends BaseTest{
 	
 	
 	
+//	@DataProvider
+//	public Object[][] getProductImagesTestData() {
+//		return new Object[][] {
+//			{"Macbook", "MacBook Pro", 4},
+//			{"iMac", "iMac", 3},
+//			{"Apple", "Apple Cinema 30\"", 6},
+//			{"Samsung", "Samsung SyncMaster 941BW", 1},
+//		};
+//	}
+	
 	@DataProvider
 	public Object[][] getProductImagesTestData() {
 		return new Object[][] {

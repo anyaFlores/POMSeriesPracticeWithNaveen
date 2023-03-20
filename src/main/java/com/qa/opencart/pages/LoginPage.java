@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import com.qa.opencart.constants.AppConstants;
 import com.qa.opencart.utils.ElementUtil;
 
+import io.qameta.allure.Step;
+
 public class LoginPage {
 
 	private WebDriver driver;
@@ -26,26 +28,26 @@ public class LoginPage {
 	}
 
 	// 3. page actions/methods:
-	//@Step("....getting the login page title.....")
+	@Step("....getting the login page title.....")
 	public String getLoginPageTitle() {		
 		String title = eleUtil.waitForTitleIsAndFetch(AppConstants.DEFAULT_SHORT_TIME_OUT, AppConstants.LOGIN_PAGE_TITLE_VALUE);
 		System.out.println("Login page title: " + title);
 		return title;
 	}
 
-	//@Step("....getting the login page url.....")
+	@Step("....getting the login page url.....")
 	public String getLoginPageURL() {
 		String url = eleUtil.waitForURLContainsAndFetch(AppConstants.DEFAULT_SHORT_TIME_OUT, AppConstants.LOGIN_PAGE_URL_FRACTION_VALUE );
 		System.out.println("Login page url: " + url);
 		return url;
 	}
 
-	//@Step("....getting the forgot pwd link.....")
+	@Step("....getting the forgot pwd link.....")
 	public boolean isForgotPwdLinkExist() {
 		return eleUtil.waitForElementVisible(forgotPwdLink, AppConstants.DEFAULT_MEDIUM_TIME_OUT).isDisplayed();
 	}
 
-	//@Step("login with username : {0} and password: {1}")
+	@Step("login with username : {0} and password: {1}")
 	public AccountsPage doLogin(String un, String pwd) {
 		System.out.println("App creds are : " + un + ":" + pwd);
 		eleUtil.waitForElementVisible(emailId, AppConstants.DEFAULT_MEDIUM_TIME_OUT).sendKeys(un);
@@ -54,13 +56,12 @@ public class LoginPage {
 		return new AccountsPage(driver);
 	}
 	
-	//@Step("navigating to register page")
+	@Step("navigating to register page")
 	public RegisterPage navigateToRegisterPage() {
 		eleUtil.doClick(registerLink);
 		return new RegisterPage(driver);
 	}
 		
-
 	
 	// return next landing page=AccountsPage
 //	//create AccountPage by right click - TDD approach - page chaining method(test driven approach-
